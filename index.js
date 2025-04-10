@@ -11,4 +11,4 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("servidor escuchando"));
 
-app.listen(8080, () => console.log("http://localhost:8080"));
+app.listen(APP_PORT, () => console.log("http://localhost:8080"));
