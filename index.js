@@ -1,10 +1,13 @@
+require("dotenv").config();
 const express = require("express");
+const APP_PORT = process.env.APP_PORT || 8080;
 const app = express();
-const mysql = require("mysql2/promise");
-const userRouter = require("./controllers/userController.js");
+const userRouter = require("./routes/userRoutes.js");
+const articuleRouter = require("./routes/articleRoutes.js");
+app.use(articuleRouter);
+app.use(userRouter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(userRouter());
 
 app.get("/", (req, res) => res.send("servidor escuchando"));
 

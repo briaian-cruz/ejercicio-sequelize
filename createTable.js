@@ -1,4 +1,4 @@
-const { sequelize } = require("./models");
+const { sequelize } = require("./models/models.js");
 
 async function createTable() {
   await sequelize.sync({ force: true });

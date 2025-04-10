@@ -1,7 +1,9 @@
-const ArticuloController = {
+const { Article } = require("../models/models.js");
+
+const ArticleController = {
   index: async (req, res) => {
     try {
-      const results = await Articulo.findAll();
+      const results = await Article.findAll();
       res.json(results);
     } catch (error) {
       console.error("Error al obtener artículos", error);
@@ -10,7 +12,7 @@ const ArticuloController = {
   show: async (req, res) => {
     try {
       const id = req.params.id;
-      const results = await Articulo.findByPk(id);
+      const results = await Article.findByPk(id);
       return res.json(results);
     } catch (error) {
       console.error("Artículo no encontrado:", error);
@@ -19,7 +21,7 @@ const ArticuloController = {
   store: async (req, res) => {
     try {
       const { title, content, userId } = req.body;
-      const results = await Articulo.create({
+      const results = await Article.create({
         title,
         content,
         userId,
@@ -33,7 +35,7 @@ const ArticuloController = {
   destroy: async (req, res) => {
     try {
       const id = req.params.id;
-      const results = await Articulo.destroy({ where: { id } });
+      const results = await Article.destroy({ where: { id } });
       return res.json(results);
     } catch (error) {
       console.error("Error al eliminar artículo", error);
@@ -43,7 +45,7 @@ const ArticuloController = {
   update: async (req, res) => {
     try {
       const id = req.params.id;
-      const results = await Articulo.update(req.body, {
+      const results = await Article.update(req.body, {
         where: { id },
       });
       return res.json(results);
@@ -53,4 +55,4 @@ const ArticuloController = {
   }, // permite actualizar algo que ya existe
 };
 
-module.exports = ArticuloController;
+module.exports = ArticleController;

@@ -1,3 +1,4 @@
+const { User } = require("../models/models.js");
 const UserController = {
   index: async (req, res) => {
     try {
