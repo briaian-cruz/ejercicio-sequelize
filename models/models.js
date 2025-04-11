@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, Model, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
@@ -10,8 +10,23 @@ const sequelize = new Sequelize(
     logging: false,
   }
 );
-
-const User = require("./User");
-const Article = require("./Article");
-
+class Article extends Model {}
+Article.init(
+  {
+    title: DataTypes.STRING,
+    content: DataTypes.STRING,
+    author: DataTypes.STRING,
+  },
+  { sequelize, modelName: "article" }
+);
+class User extends Model {}
+User.init(
+  {
+    firsname: DataTypes.STRING,
+    lastname: DataTypes.STRING,
+    mail: DataTypes.STRING,
+    password: DataTypes.STRING,
+  },
+  { sequelize, modelName: "user" }
+);
 module.exports = { sequelize, User, Article };

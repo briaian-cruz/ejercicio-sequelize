@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { sequelize } = require("./models/models.js");
 
 async function createTable() {

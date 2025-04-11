@@ -14,7 +14,7 @@
  */
 
 const faker = require("@faker-js/faker").fakerES;
-const { Article } = require("../models");
+const { Article } = require("../models/models.js");
 
 module.exports = async () => {
   const articles = [];
@@ -22,7 +22,7 @@ module.exports = async () => {
   for (let i = 0; i < 500; i++) {
     articles.push({
       title: faker.lorem.sentence(5),
-      content: faker.lorem.paragraphs(),
+      content: faker.lorem.sentence(15),
     });
   }
 

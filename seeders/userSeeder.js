@@ -15,7 +15,7 @@
  */
 
 const faker = require("@faker-js/faker").fakerES;
-const { User } = require("../models");
+const { User } = require("../models/models.js");
 
 module.exports = async () => {
   const users = [];
