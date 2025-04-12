@@ -22,7 +22,7 @@ Article.init(
 class User extends Model {}
 User.init(
   {
-    firsname: DataTypes.STRING,
+    firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
     mail: DataTypes.STRING,
     password: DataTypes.STRING,

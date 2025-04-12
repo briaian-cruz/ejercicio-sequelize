@@ -19,7 +19,7 @@ const UserController = {
   },
   store: async (req, res) => {
     try {
-      const { firstname, lastname, password } = req.body;
+      const { firstname, lastname, mail, password } = req.body;
       const results = await User.create({
         firstname,
         lastname,

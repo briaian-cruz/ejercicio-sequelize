@@ -21,9 +21,18 @@ module.exports = async () => {
   const users = [];
 
   for (let i = 0; i < 100; i++) {
+    const firstname = faker.person.firstName();
+    const lastname = faker.person.lastName();
+    const email = faker.internet
+      .email({ firstName: firstname, lastName: lastname })
+      .toLowerCase();
+    const password = faker.internet.password({ length: 10 });
+
     users.push({
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
+      firstname,
+      lastname,
+      mail: email,
+      password,
     });
   }
 
