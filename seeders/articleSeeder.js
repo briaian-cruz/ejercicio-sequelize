@@ -15,9 +15,12 @@
 
 const faker = require("@faker-js/faker").fakerES;
 const { Article } = require("../models/models.js");
+const { User } = require("../models/models.js");
 
 module.exports = async () => {
+  const users = await User.findAll();
   const articles = [];
+
   for (let i = 0; i < 500; i++) {
     const userId = users[Math.floor(Math.random() * users.length)].id;
     articles.push({
