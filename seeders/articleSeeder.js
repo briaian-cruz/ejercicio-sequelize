@@ -18,12 +18,12 @@ const { Article } = require("../models/models.js");
 
 module.exports = async () => {
   const articles = [];
-
   for (let i = 0; i < 500; i++) {
+    const userId = users[Math.floor(Math.random() * users.length)].id;
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.sentence(15),
-      userId: faker.string.numeric({ length: { min: 1, max: 99 } }),
+      userId: userId,
     });
   }
 

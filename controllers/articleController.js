@@ -1,9 +1,11 @@
-const { Article } = require("../models/models.js");
+const { Article, User } = require("../models/models.js");
 
 const ArticleController = {
   index: async (req, res) => {
     try {
-      const results = await Article.findAll();
+      const results = await Article.findAll({
+        include: { model: User, as: "author" },
+      });
       res.json(results);
     } catch (error) {
       console.error("Error al obtener artículos", error);
@@ -12,7 +14,9 @@ const ArticleController = {
   show: async (req, res) => {
     try {
       const id = req.params.id;
-      const results = await Article.findByPk(id);
+      const results = await Article.findByPk(id, {
+        include: { model: User, as: "author" },
+      });
       return res.json(results);
     } catch (error) {
       console.error("Artículo no encontrado:", error);
