@@ -35,7 +35,7 @@ const UserController = {
 
   destroy: async (req, res) => {
     try {
-      const results = await User.destroy(id);
+      const results = await User.destroy({ where: { id: req.params.id } });
       return res.json(results);
     } catch (error) {
       console.error("Error al eliminar usuario", error);
@@ -44,7 +44,9 @@ const UserController = {
 
   update: async (req, res) => {
     try {
-      const results = await User.update();
+      const results = await User.update(req.body, {
+        where: { id: req.params.id },
+      });
       return res.json(results);
     } catch (error) {
       console.error("Error al editar usuario", error);
