@@ -26,9 +26,10 @@ const UserController = {
         mail,
         password,
       });
-      return res.send(results);
+      return res.json(results);
     } catch (error) {
       console.error("Error al crear usuario", error);
+      res.send("Error al crear usuario");
     }
   },
 

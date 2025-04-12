@@ -15,7 +15,6 @@ Article.init(
   {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    author: DataTypes.STRING,
   },
   { sequelize, modelName: "article" }
 );
@@ -29,4 +28,8 @@ User.init(
   },
   { sequelize, modelName: "user" }
 );
+
+User.hasMany(Article);
+Article.belongsTo(User);
+
 module.exports = { sequelize, User, Article };

@@ -4,9 +4,9 @@ const APP_PORT = process.env.APP_PORT || 8080;
 const app = express();
 const userRouter = require("./routes/userRoutes.js");
 const articuleRouter = require("./routes/articleRoutes.js");
+app.use(express.json());
 app.use(articuleRouter);
 app.use(userRouter);
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("servidor escuchando"));
