@@ -29,7 +29,7 @@ User.init(
   { sequelize, modelName: "user" }
 );
 
-User.hasMany(Article);
-Article.belongsTo(User);
+User.hasMany(Article, { foreignKey: "userId" });
+Article.belongsTo(User, { as: "author", foreignKey: "userId" });
 
 module.exports = { sequelize, User, Article };
